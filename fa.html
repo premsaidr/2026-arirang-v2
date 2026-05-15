@@ -2076,13 +2076,37 @@ hr.divider { background: rgba(255,255,255,.08); }
   .hero { padding-top: 50px; }
   .nav-links { display: none; }
 
-  /* ── 히어로 ──────────────────────────────────────────────── */
-  .hero-content { padding: 48px 24px 72px; }
-  .hero-title   { font-size: clamp(30px, 6vw, 52px); }
-  .hero-sub     { font-size: clamp(17px, 3vw, 22px); }
-  .hero-meta    { gap: 16px; margin-top: 32px; }
-  .hero-meta-item { font-size: 14px; letter-spacing: .1em; }
-  .hero-author  { font-size: clamp(16px, 2.8vw, 20px); padding: 13px 28px; }
+  /* ── 히어로 — 모바일: 동영상 위 / 텍스트 아래 분리 레이아웃 ─ */
+  .hero {
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
+    padding-top: 56px;
+  }
+  .hero-bg {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .hero-vignette { display: none; }
+  .hero-content {
+    position: relative !important;
+    z-index: 1 !important;
+    background: var(--black);
+    padding: 32px 24px 48px !important;
+    text-align: center;
+    max-width: none !important;
+    animation: none !important;
+  }
+  .hero-eyebrow { font-size: clamp(13px, 3.6vw, 17px); margin-bottom: 16px; letter-spacing: .15em; }
+  .hero-title   { font-size: clamp(28px, 6.4vw, 46px); line-height: 1.1; margin-bottom: 12px; }
+  .hero-sub     { font-size: clamp(15px, 3.6vw, 18px); margin-bottom: 24px; }
+  .hero-author  { font-size: clamp(14px, 3.6vw, 17px); padding: 11px 22px; }
+  .hero-meta    { gap: 14px; margin-top: 24px; flex-direction: column; }
+  .hero-meta-item { font-size: 13px; letter-spacing: .1em; }
   .hero-scroll-hint { display: none; }
 
   /* ── 플로우차트 — 숨김 ──────────────────────────────────── */
@@ -3382,12 +3406,14 @@ svg text { direction: ltr !important; unicode-bidi: isolate !important; }
 <script>
 /* 비디오 탭 전환 */
 function switchVideo(idx){
-  /* 이전 활성 패널의 iframe src 초기화 → 영상·음성 즉시 정지 */
+  /* 이전 활성 패널의 iframe — cloneNode로 교체하여 강제 정지
+     (YouTube가 enablejsapi 미설정 상태에서도 영상·음성 즉시 차단) */
   var prev = document.querySelector('.video-panel.active');
   if(prev){
     var prevIframe = prev.querySelector('iframe');
-    if(prevIframe){
-      prevIframe.src = prevIframe.src; /* 동일 src 재할당으로 정지 */
+    if(prevIframe && prevIframe.src && prevIframe.src.indexOf('youtube') > -1){
+      var clone = prevIframe.cloneNode(true);
+      prevIframe.parentNode.replaceChild(clone, prevIframe);
     }
   }
   document.querySelectorAll('.video-panel').forEach(function(p,i){p.classList.toggle('active',i===idx);});
