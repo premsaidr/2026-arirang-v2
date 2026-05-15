@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a843"/>
+      <stop offset="50%" stop-color="#e8c547"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+  <!-- 검정 라운드 배경 -->
+  <rect width="64" height="64" rx="12" ry="12" fill="url(#bg)"/>
+  <!-- 골드 테두리 라인 (얇은 액센트) -->
+  <rect x="1.5" y="1.5" width="61" height="61" rx="10.5" ry="10.5"
+        fill="none" stroke="#b8860b" stroke-width="0.7" opacity="0.4"/>
+  <!-- JSD 텍스트 -->
+  <text x="32" y="29"
+        font-family="Montserrat, 'Helvetica Neue', sans-serif"
+        font-weight="900" font-size="20"
+        text-anchor="middle"
+        fill="url(#gold)"
+        letter-spacing="0.5">JSD</text>
+  <!-- 2026 텍스트 -->
+  <text x="32" y="48"
+        font-family="Montserrat, 'Helvetica Neue', sans-serif"
+        font-weight="700" font-size="13"
+        text-anchor="middle"
+        fill="#f7f3ec"
+        letter-spacing="1.5">2026</text>
+  <!-- 골드 언더바 액센트 -->
+  <rect x="22" y="51" width="20" height="1.5" rx="0.75" fill="url(#gold)"/>
+</svg>
