@@ -1450,13 +1450,32 @@ a { color: inherit; text-decoration: none; }
   .footer-grid { grid-template-columns:1fr; gap:24px; }
   .arirang-hero { padding:40px 20px; }
   .ebook-viewer { height:580px; }
-  .taera-overlay { padding:14px 16px 20px; }
-  .taera-caption { font-size:clamp(14px,3.8vw,20px) !important; margin-bottom:6px; }
-  .taera-subcaption { font-size:clamp(12px,2.8vw,15px) !important; line-height:1.5; }
-  .hero-content { padding: 60px var(--gutter); }
+  /* ── 태라천궁 — 모바일: 동영상 위 / 텍스트 아래 분리 레이아웃 ── */
+  .taera-wrap {
+    aspect-ratio: auto !important;
+    min-height: 0 !important;
+    display: block !important;
+  }
+  .taera-video {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+  .taera-overlay {
+    position: relative !important;
+    inset: auto !important;
+    bottom: auto !important;
+    background: var(--black) !important;
+    padding: 24px 20px 32px !important;
+    text-align: center;
+  }
+  .taera-caption { font-size: clamp(17px, 4.2vw, 22px) !important; margin-bottom: 8px !important; color: var(--white) !important; }
+  .taera-subcaption { font-size: clamp(13px, 3.2vw, 16px) !important; line-height: 1.6 !important; color: rgba(255,255,255,.65) !important; }
   .nav-links { display:none; }
   .top-nav-inner { height:50px; }
-  .hero { padding-top:50px; }
 }
 
 /* ===== NEW: 스크롤 진행 표시 ===== */
@@ -2076,37 +2095,77 @@ hr.divider { background: rgba(255,255,255,.08); }
   .hero { padding-top: 50px; }
   .nav-links { display: none; }
 
-  /* ── 히어로 — 모바일: 동영상 위 / 텍스트 아래 분리 레이아웃 ─ */
+  /* ── 히어로 — 모바일: sunrise.mp4 배경 + 컴팩트 텍스트 오버레이 ─ */
   .hero {
-    min-height: 0 !important;
-    height: auto !important;
-    display: block !important;
-    padding-top: 56px;
-  }
-  .hero-bg {
-    position: relative !important;
-    inset: auto !important;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+    min-height: 70vh;
+    padding: 80px 0 40px;
+    position: relative;
     overflow: hidden;
   }
-  .hero-vignette { display: none; }
+  .hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0;
+  }
+  .hero-video {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 1 !important;
+  }
+  .hero-photo {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .hero-vignette {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1;
+    background:
+      radial-gradient(ellipse at center, rgba(0,0,0,.3) 0%, rgba(0,0,0,.75) 100%),
+      linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.85) 100%) !important;
+  }
+  /* ── video controls 강제 숨김 (iOS Safari ▶ 버튼 차단) ─────── */
+  .hero-video::-webkit-media-controls,
+  .hero-video::-webkit-media-controls-panel,
+  .hero-video::-webkit-media-controls-play-button,
+  .hero-video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none !important; }
+  .hero-video { pointer-events: none; }
   .hero-content {
     position: relative !important;
-    z-index: 1 !important;
-    background: var(--black);
-    padding: 32px 24px 48px !important;
-    text-align: center;
-    max-width: none !important;
-    animation: none !important;
+    z-index: 2 !important;
+    padding: 0 20px;
+    max-width: 100%;
   }
-  .hero-eyebrow { font-size: clamp(13px, 3.6vw, 17px); margin-bottom: 16px; letter-spacing: .15em; }
-  .hero-title   { font-size: clamp(28px, 6.4vw, 46px); line-height: 1.1; margin-bottom: 12px; }
-  .hero-sub     { font-size: clamp(15px, 3.6vw, 18px); margin-bottom: 24px; }
-  .hero-author  { font-size: clamp(14px, 3.6vw, 17px); padding: 11px 22px; }
-  .hero-meta    { gap: 14px; margin-top: 24px; flex-direction: column; }
-  .hero-meta-item { font-size: 13px; letter-spacing: .1em; }
+  .hero-eyebrow {
+    flex-direction: column;
+    gap: 3px;
+    font-size: clamp(12px, 3.2vw, 15px);
+    margin-bottom: 16px;
+    letter-spacing: .15em;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
+  .m-ey-d { display: none !important; }
+  .m-ey-m { display: block !important; text-align: center; line-height: 1.5; }
+  .hero-title {
+    font-size: clamp(26px, 6.5vw, 42px);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .hero-sub { display: none; }
+  .hero-author {
+    padding: 10px 22px;
+    font-size: clamp(13px, 3.4vw, 16px);
+    cursor: pointer;
+  }
+  .hero-meta { display: none; }
   .hero-scroll-hint { display: none; }
 
   /* ── 플로우차트 — 숨김 ──────────────────────────────────── */
@@ -2175,10 +2234,6 @@ hr.divider { background: rgba(255,255,255,.08); }
   .footer-manifesto-watch { gap: 10px; }
   .footer-manifesto-links { grid-template-columns: 1fr 1fr !important; }
 
-  /* ── 태라천궁 이미지 높이 ────────────────────────────────── */
-  .taera-wrap { min-height: 0 !important; }
-  .taera-wrap img { height: clamp(460px,60vw,700px) !important; min-height: 0 !important; }
-
   /* ── 섹션 여백 ──────────────────────────────────────────── */
   .section, .video-section { padding: clamp(40px,6vw,64px) 0; }
   .section-header { margin-bottom: clamp(32px,4vw,48px); }
@@ -2196,13 +2251,6 @@ hr.divider { background: rgba(255,255,255,.08); }
   .m-cosmic-hide .svg-desktop { display: none !important; }
   .m-cosmic-hide .svg-mobile  { display: block !important; }
 
-  /* ── hero-eyebrow 모바일: 세로 2줄 ─────────────────────────── */
-  .hero-eyebrow { flex-direction:column; gap:3px; letter-spacing:.12em; font-size:clamp(14px,4vw,20px); margin-bottom:20px; }
-  .hero-eyebrow::before, .hero-eyebrow::after { display:none; }
-  .m-ey-d { display:none !important; }
-  .m-ey-m { display:block !important; text-align:center; line-height:1.7; }
-  /* ── hero-author 모바일 패딩 ─────────────────────────────── */
-  .hero-author { padding: 12px 20px; font-size: clamp(14px,3.6vw,18px); cursor:pointer; }
 }
 
 /* ================================================================
@@ -2477,10 +2525,11 @@ hr.divider { background: rgba(255,255,255,.08); }
 <!-- ===== 히어로 ===== -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <div class="hero-photo" id="heroPhoto" style="background-image:url('sunrise.mp4');opacity:0;"></div>
+    <div class="hero-photo" id="heroPhoto" style="background-image:url('img_01.jpg');"></div>
     <video class="hero-video" id="heroVideo"
-      autoplay muted loop playsinline preload="auto">
+      autoplay muted loop playsinline disablepictureinpicture controlsList="nodownload nofullscreen noremoteplayback" preload="auto">
       <source src="sunrise.mp4" type="video/mp4">
+      <source src="hero.mp4" type="video/mp4">
     </video>
     <div class="hero-vignette"></div>
   </div>
@@ -3478,7 +3527,13 @@ document.addEventListener('keydown',function(e){
   }
 
   var p = v.play();
-  if (p) p.catch(function () { v.remove(); });
+  if (p) p.catch(function () {
+    /* autoplay 차단 시: 영상 제거하지 말고 첫 프레임 표시 + 사용자 터치 시 재시도 */
+    v.style.opacity = '1';
+    var retry = function(){ v.play().catch(function(){}); document.removeEventListener('touchstart', retry); document.removeEventListener('click', retry); };
+    document.addEventListener('touchstart', retry, { once: true, passive: true });
+    document.addEventListener('click', retry, { once: true });
+  });
 })();
 
 /* ── hero.mp4 (태라천궁) 핸들러 ── */
@@ -3492,7 +3547,12 @@ document.addEventListener('keydown',function(e){
     v.addEventListener('loadeddata', show, { once: true });
   }
   var p = v.play();
-  if (p) p.catch(function () { v.remove(); });
+  if (p) p.catch(function () {
+    v.style.opacity = '1';
+    var retry = function(){ v.play().catch(function(){}); document.removeEventListener('touchstart', retry); document.removeEventListener('click', retry); };
+    document.addEventListener('touchstart', retry, { once: true, passive: true });
+    document.addEventListener('click', retry, { once: true });
+  });
 })();
 
 /* ── cosmic-year.mp4 핸들러 ── */
@@ -3506,7 +3566,12 @@ document.addEventListener('keydown',function(e){
     v.addEventListener('loadeddata', show, { once: true });
   }
   var p = v.play();
-  if (p) p.catch(function () { v.remove(); });
+  if (p) p.catch(function () {
+    v.style.opacity = '1';
+    var retry = function(){ v.play().catch(function(){}); document.removeEventListener('touchstart', retry); document.removeEventListener('click', retry); };
+    document.addEventListener('touchstart', retry, { once: true, passive: true });
+    document.addEventListener('click', retry, { once: true });
+  });
 })();
 (function () {
   var v = document.getElementById('meditationVideo');
@@ -3518,7 +3583,12 @@ document.addEventListener('keydown',function(e){
     v.addEventListener('loadeddata', showMed, { once: true });
   }
   var p = v.play();
-  if (p) p.catch(function () { v.remove(); });
+  if (p) p.catch(function () {
+    v.style.opacity = '1';
+    var retry = function(){ v.play().catch(function(){}); document.removeEventListener('touchstart', retry); document.removeEventListener('click', retry); };
+    document.addEventListener('touchstart', retry, { once: true, passive: true });
+    document.addEventListener('click', retry, { once: true });
+  });
 })();
 </script>
 <script>
