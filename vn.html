@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0a">
 <title>Từ văn minh AI đến kỷ nguyên Arirang — Con Người Ánh Sáng | Thông điệp Năm Mới 2026 Jeung San Do</title>
 <meta property="og:type"         content="website">
 <meta property="og:url"          content="https://jsd.or.kr/2026/">
@@ -17,6 +16,15 @@
 <meta name="twitter:title"       content="Từ văn minh AI đến kỷ nguyên Arirang — Con Người Ánh Sáng">
 <meta name="twitter:description" content="Thông điệp Năm Mới 2026 của Jongdosanim Ahn Gyeong-jeon — Jeung San Do">
 <meta name="twitter:image"       content="https://i.ytimg.com/vi/j4T4vCNloYU/maxresdefault.jpg">
+<!-- ===== Favicon ===== -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="msapplication-TileColor" content="#0a0a0a">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -2097,8 +2105,8 @@ hr.divider { background: rgba(255,255,255,.08); }
 
   /* ── 히어로 — 모바일: sunrise.mp4 배경 + 컴팩트 텍스트 오버레이 ─ */
   .hero {
-    min-height: 70vh;
-    padding: 80px 0 40px;
+    min-height: 90vh;
+    padding: 110px 0 60px;
     position: relative;
     overflow: hidden;
   }
@@ -2146,25 +2154,28 @@ hr.divider { background: rgba(255,255,255,.08); }
   }
   .hero-eyebrow {
     flex-direction: column;
-    gap: 4px;
-    font-size: clamp(14px, 4vw, 18px);
-    margin-bottom: 22px;
-    letter-spacing: .18em;
+    gap: 8px;
+    font-size: clamp(17px, 4.8vw, 22px);
+    margin-bottom: 32px;
+    letter-spacing: .2em;
+    line-height: 1.6;
   }
   .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
   .m-ey-d { display: none !important; }
-  .m-ey-m { display: block !important; text-align: center; line-height: 1.5; }
+  .m-ey-m { display: block !important; text-align: center; line-height: 1.7; }
   .hero-title {
-    font-size: clamp(34px, 8.5vw, 54px);
-    line-height: 1.08;
-    margin-bottom: 20px;
+    font-size: clamp(42px, 10.5vw, 64px);
+    line-height: 1.18;
+    margin-bottom: 36px;
     letter-spacing: -.02em;
   }
+  .hero-title em { display: block; margin-top: 8px; }
   .hero-sub { display: none; }
   .hero-author {
-    padding: 13px 28px;
-    font-size: clamp(15px, 4.2vw, 20px);
+    padding: 16px 34px;
+    font-size: clamp(17px, 4.8vw, 22px);
     cursor: pointer;
+    line-height: 1.5;
   }
   .hero-meta { display: none; }
   .hero-scroll-hint { display: none; }
@@ -3175,37 +3186,37 @@ hr.divider { background: rgba(255,255,255,.08); }
     </div>
     <div class="lang-tabs-grid reveal">
       <div class="lang-row">
-        <button class="lang-tab" onclick="switchVideo(0)">한국어 🇰🇷</button>
-        <button class="lang-tab" onclick="switchVideo(1)">English 🇺🇸</button>
-        <button class="lang-tab" onclick="switchVideo(2)">日本語 🇯🇵</button>
-        <button class="lang-tab" onclick="switchVideo(3)">Français 🇫🇷</button>
-        <button class="lang-tab" onclick="switchVideo(4)">Español 🇪🇸</button>
-        <button class="lang-tab active" onclick="switchVideo(5)">Việt Nam 🇻🇳</button>
+        <button data-vidx="0" class="lang-tab" onclick="switchVideo(0)">한국어 🇰🇷</button>
+        <button data-vidx="1" class="lang-tab" onclick="switchVideo(1)">English 🇺🇸</button>
+        <button data-vidx="2" class="lang-tab" onclick="switchVideo(2)">日本語 🇯🇵</button>
+        <button data-vidx="3" class="lang-tab" onclick="switchVideo(3)">Français 🇫🇷</button>
+        <button data-vidx="4" class="lang-tab" onclick="switchVideo(4)">Español 🇪🇸</button>
+        <button data-vidx="5" class="lang-tab active" onclick="switchVideo(5)">Việt Nam 🇻🇳</button>
       </div>
       <div class="lang-row">
-        <button class="lang-tab" onclick="switchVideo(6)">Монгол 🇲🇳</button>
-        <button class="lang-tab" onclick="switchVideo(7)">繁體 🇹🇼</button>
-        <button class="lang-tab" onclick="switchVideo(8)">简体 🇨🇳</button>
-        <button class="lang-tab" onclick="switchVideo(9)">Deutsch 🇩🇪</button>
-        <button class="lang-tab" onclick="switchVideo(11)">Русский 🇷🇺</button>
-        <button class="lang-tab" onclick="switchVideo(12)">فارسی 🇮🇷</button>
+        <button data-vidx="6" class="lang-tab" onclick="switchVideo(6)">Монгол 🇲🇳</button>
+        <button data-vidx="7" class="lang-tab" onclick="switchVideo(7)">繁體 🇹🇼</button>
+        <button data-vidx="8" class="lang-tab" onclick="switchVideo(8)">简体 🇨🇳</button>
+        <button data-vidx="9" class="lang-tab" onclick="switchVideo(9)">Deutsch 🇩🇪</button>
+        <button data-vidx="11" class="lang-tab" onclick="switchVideo(11)">Русский 🇷🇺</button>
+        <button data-vidx="12" class="lang-tab" onclick="switchVideo(12)">فارسی 🇮🇷</button>
       </div>
     </div>
     <div id="videoContainer">
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/IUmecZAMoXE" title="Korean" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1F0;&#x1F1F7; Korean Original + Subtitles</strong> &#x2014; 2026 New Year's Address</p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/j4T4vCNloYU" title="English" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1FA;&#x1F1F8; English Dubbing + Subtitles</strong> &#x2014; 2026 New Year's Address</p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/5RAP7GnQWRA" title="Japanese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1EF;&#x1F1F5; Japanese Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/xAVIdNKqJxE" title="French" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1EB;&#x1F1F7; French Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/h-ZKC-c1S5s" title="Spanish" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1EA;&#x1F1F8; Spanish Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel active"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/HBqpMO3s5lg" title="Vietnamese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1FB;&#x1F1F3; Vietnamese Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/NXZiYs2AjpA" title="Mongolian" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1F2;&#x1F1F3; Mongolian Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/jb3BoXEuXoI" title="Traditional Chinese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1E8;&#x1F1F3; Traditional Chinese Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/jb3BoXEuXoI" title="Simplified Chinese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>🇨🇳 Simplified Chinese Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/3UFjmjBtQg0" title="German" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1E9;&#x1F1EA; German Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap" style="display:flex;align-items:center;justify-content:center;background:#111;"><div style="text-align:center;color:rgba(255,255,255,.5);padding:40px;"><div style="font-size:48px;margin-bottom:12px;">🎬</div><div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:600;color:rgba(255,255,255,.7);">🇵🇹 Português</div><div style="margin-top:8px;font-size:13px;">Sắp ra mắt</div></div></div></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/fEIVWHaxzyU" title="Russian" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>🇷🇺 Russian Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/KaUglO2QAWU" title="Persian" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>🇮🇷 Persian Dubbing + Subtitles</strong></p></div>
-      <div class="video-panel"><div class="video-wrap" style="display:flex;align-items:center;justify-content:center;background:#111;"><div style="text-align:center;color:rgba(255,255,255,.5);padding:40px;"><div style="font-size:48px;margin-bottom:16px;">🇮🇩</div><div style="font-family:var(--font-display);font-size:18px;font-weight:700;">Bahasa Indonesia</div><div style="margin-top:8px;font-size:14px;">Coming Soon</div></div></div></div>
+      <div data-vidx="0" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/IUmecZAMoXE" title="Korean" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1F0;&#x1F1F7; Korean Original + Subtitles</strong> &#x2014; 2026 New Year's Address</p></div>
+      <div data-vidx="1" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/j4T4vCNloYU" title="English" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1FA;&#x1F1F8; English Dubbing + Subtitles</strong> &#x2014; 2026 New Year's Address</p></div>
+      <div data-vidx="2" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/5RAP7GnQWRA" title="Japanese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1EF;&#x1F1F5; Japanese Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="3" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/xAVIdNKqJxE" title="French" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1EB;&#x1F1F7; French Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="4" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/h-ZKC-c1S5s" title="Spanish" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1EA;&#x1F1F8; Spanish Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="5" class="video-panel active"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/HBqpMO3s5lg" title="Vietnamese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1FB;&#x1F1F3; Vietnamese Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="6" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/NXZiYs2AjpA" title="Mongolian" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1F2;&#x1F1F3; Mongolian Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="7" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/jb3BoXEuXoI" title="Traditional Chinese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1E8;&#x1F1F3; Traditional Chinese Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="8" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/jb3BoXEuXoI" title="Simplified Chinese" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>🇨🇳 Simplified Chinese Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="9" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/3UFjmjBtQg0" title="German" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>&#x1F1E9;&#x1F1EA; German Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="10" class="video-panel"><div class="video-wrap" style="display:flex;align-items:center;justify-content:center;background:#111;"><div style="text-align:center;color:rgba(255,255,255,.5);padding:40px;"><div style="font-size:48px;margin-bottom:12px;">🎬</div><div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:600;color:rgba(255,255,255,.7);">🇵🇹 Português</div><div style="margin-top:8px;font-size:13px;">Sắp ra mắt</div></div></div></div>
+      <div data-vidx="11" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/fEIVWHaxzyU" title="Russian" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>🇷🇺 Russian Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="12" class="video-panel"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/KaUglO2QAWU" title="Persian" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div><p class="video-desc"><strong>🇮🇷 Persian Dubbing + Subtitles</strong></p></div>
+      <div data-vidx="13" class="video-panel"><div class="video-wrap" style="display:flex;align-items:center;justify-content:center;background:#111;"><div style="text-align:center;color:rgba(255,255,255,.5);padding:40px;"><div style="font-size:48px;margin-bottom:16px;">🇮🇩</div><div style="font-family:var(--font-display);font-size:18px;font-weight:700;">Bahasa Indonesia</div><div style="margin-top:8px;font-size:14px;">Coming Soon</div></div></div></div>
     </div>
   </div>
 </section>
@@ -3437,8 +3448,7 @@ hr.divider { background: rgba(255,255,255,.08); }
 <script>
 /* 비디오 탭 전환 */
 function switchVideo(idx){
-  /* 이전 활성 패널의 iframe — cloneNode로 교체하여 강제 정지
-     (YouTube가 enablejsapi 미설정 상태에서도 영상·음성 즉시 차단) */
+  /* 이전 활성 패널의 iframe — cloneNode로 교체하여 강제 정지 */
   var prev = document.querySelector('.video-panel.active');
   if(prev){
     var prevIframe = prev.querySelector('iframe');
@@ -3447,8 +3457,13 @@ function switchVideo(idx){
       prevIframe.parentNode.replaceChild(clone, prevIframe);
     }
   }
-  document.querySelectorAll('.video-panel').forEach(function(p,i){p.classList.toggle('active',i===idx);});
-  document.querySelectorAll('.lang-tab').forEach(function(t,i){t.classList.toggle('active',i===idx);});
+  /* 패널·버튼을 data-vidx 속성으로 매칭 (순차 index가 아닌 명시 idx 사용) */
+  document.querySelectorAll('.video-panel').forEach(function(p){
+    p.classList.toggle('active', parseInt(p.getAttribute('data-vidx'),10) === idx);
+  });
+  document.querySelectorAll('.lang-tab').forEach(function(t){
+    t.classList.toggle('active', parseInt(t.getAttribute('data-vidx'),10) === idx);
+  });
 }
 
 /* E-Book 모달 */

@@ -1,0 +1,24 @@
+{
+  "name": "JSD 2026 — AI 문명을 넘어 빛의 인간 아리랑 시대",
+  "short_name": "JSD 2026",
+  "description": "증산도 안경전 종도사님 2026 병오년 신년사 — 12개 언어 다국어 사이트",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
