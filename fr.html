@@ -2166,9 +2166,9 @@ hr.divider { background: rgba(255,255,255,.08); }
   .m-ey-d { display: none !important; }
   .m-ey-m { display: block !important; text-align: center; line-height: 1.7; }
   .hero-title {
-    font-size: clamp(42px, 10.5vw, 64px);
+    font-size: clamp(38px, 9.5vw, 58px);
     line-height: 1.18;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     letter-spacing: -.02em;
   }
   .hero-title em { display: block; margin-top: 8px; }
@@ -2501,10 +2501,10 @@ hr.divider { background: rgba(255,255,255,.08); }
   <div class="ham-foot" style="border-top:none;border-bottom:1px solid rgba(255,255,255,.08);padding:12px 16px;">
     <div class="ham-foot-label">Language</div>
     <div class="ham-lang-grid" id="hamLangGrid">
-      <button class="ham-lang-btn active" onclick="hamNavLang(0)">🇰🇷 한국어</button>
+      <button class="ham-lang-btn" onclick="hamNavLang(0)">🇰🇷 한국어</button>
       <button class="ham-lang-btn" onclick="hamNavLang(1)">🇺🇸 EN</button>
       <button class="ham-lang-btn" onclick="hamNavLang(2)">🇯🇵 JP</button>
-      <button class="ham-lang-btn" onclick="hamNavLang(3)">🇫🇷 FR</button>
+      <button class="ham-lang-btn active" onclick="hamNavLang(3)">🇫🇷 FR</button>
       <button class="ham-lang-btn" onclick="hamNavLang(4)">🇪🇸 ES</button>
       <button class="ham-lang-btn" onclick="hamNavLang(5)">🇻🇳 VN</button>
       <button class="ham-lang-btn" onclick="hamNavLang(6)">🇲🇳 MN</button>
@@ -2606,7 +2606,7 @@ hr.divider { background: rgba(255,255,255,.08); }
     <p class="hero-sub">Pour accueillir l'Année du Cheval de Feu 2026</p>
     <div class="hero-author" onclick="openBioModal()" title="프로필 보기" style="cursor:pointer;">
       <span class="m-author-desktop">Jongdosanim Ahn Gyeong-jeon,<br>Jeung San Do</span>
-      <span class="m-author-mobile">Jongdosanim Ahn Gyeong-jeon,<br>Jeung San Do</span>
+      <span class="m-author-mobile">Jongdosanim<br>Ahn Gyeong-jeon,<br>Jeung San Do</span>
     </div>
     <div class="hero-meta">
       <span class="hero-meta-item"><span class="dot"></span> 12 langues</span>
@@ -3824,6 +3824,28 @@ document.addEventListener('keydown', function(e) {
         || localStorage.getItem('jsd2026_pwa_dismissed') === '1';
   }
 
+  /* iOS 감지 — beforeinstallprompt 미지원, "홈 화면에 추가" 안내 필요 */
+  function isIOS(){
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  }
+  /* 모바일 감지 */
+  function isMobile(){
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  /* 모바일에서 5초 후 배너 강제 표시 (beforeinstallprompt가 안 와도) */
+  setTimeout(function(){
+    if (isInstalled() || !banner) return;
+    if (banner.style.display === 'flex') return;  /* 이미 표시 중이면 skip */
+    if (isMobile()) {
+      banner.style.display = 'flex';
+      /* iOS는 자동 prompt 불가 → 클릭 시 안내 표시 */
+      if (isIOS() && btn) {
+        btn.setAttribute('data-ios','1');
+      }
+    }
+  }, 5000);
+
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault();
     deferredPrompt = e;
@@ -3833,7 +3855,15 @@ document.addEventListener('keydown', function(e) {
   });
 
   if (btn) btn.addEventListener('click', function(){
-    if (!deferredPrompt) return;
+    /* iOS: 자동 prompt 불가 → 안내 메시지 표시 */
+    if (btn.getAttribute('data-ios') === '1') {
+      alert('iOS: 공유 버튼(↑) → "홈 화면에 추가"를 눌러 앱처럼 설치하세요');
+      return;
+    }
+    if (!deferredPrompt) {
+      alert('이미 설치되었거나 브라우저가 PWA를 지원하지 않습니다');
+      return;
+    }
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then(function(){
       deferredPrompt = null;
@@ -3851,6 +3881,33 @@ document.addEventListener('keydown', function(e) {
     if (banner) banner.style.display = 'none';
     deferredPrompt = null;
   });
+})();
+</script>
+<script>
+/* ===== 햄버거/드롭다운 언어 버튼 active 동기화 (페이지 로드 시) ===== */
+(function(){
+  var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  if (path === '' || path === 'index_v5.html') path = 'index.html';
+  var URL_TO_IDX = {
+    'index.html': 0, 'en.html': 1, 'ja.html': 2, 'fr.html': 3,
+    'es.html': 4, 'vn.html': 5, 'mn.html': 6, 'zh-hant.html': 7,
+    'zh-hans.html': 8, 'de.html': 9, 'ru.html': 11, 'fa.html': 12
+  };
+  var idx = URL_TO_IDX[path];
+  if (typeof idx !== 'number') return;
+  function syncActive(selector, fnName){
+    document.querySelectorAll(selector).forEach(function(b){
+      var oc = b.getAttribute('onclick') || '';
+      var m = oc.match(new RegExp(fnName + '\\((\\d+)\\)'));
+      b.classList.toggle('active', !!(m && parseInt(m[1],10) === idx));
+    });
+  }
+  function run(){
+    syncActive('.ham-lang-btn', 'hamNavLang');
+    syncActive('.lang-item', 'navLang');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
 })();
 </script>
 </body>
