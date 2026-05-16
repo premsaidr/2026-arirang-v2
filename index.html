@@ -2495,8 +2495,8 @@ body.kakao-banner-on { padding-top: 64px; }
 <div id="kakaoNoticeBanner" role="alert">
   <span class="kakao-icon">🌐</span>
   <div class="kakao-text">
-    <b>앱 설치는 Chrome에서 가능합니다</b>
-    <span>카톡 메뉴 ⋮ → "다른 브라우저로 열기"</span>
+    <b>앱 설치 안내</b>
+    <span>앱 설치가 안 될 경우 ⋮ 메뉴에서 "다른 브라우저로 열기"를 눌러주세요</span>
   </div>
   <button class="kakao-close" onclick="closeKakaoBanner()" aria-label="close">×</button>
 </div>
@@ -4010,19 +4010,16 @@ Chrome 메뉴 → "JSD 2026 설치"를 선택하세요.');
 /* ===== 카톡 인앱 브라우저 감지 및 안내 ===== */
 (function(){
   function isKakaoTalk(){
-    /* ⚠️ ⚠️ ⚠️  TEST MODE — 시각 확인용 강제 true (배포 전 반드시 원복!)  ⚠️ ⚠️ ⚠️ */
-    return true;
-    /* 원본 코드 (원복 시 위 return true 줄을 삭제하면 활성화됨)
     var ua = navigator.userAgent;
-    if (!/KAKAOTALK/i.test(ua)) return false;
+    /* 1단계: 화면 폭 1024px 초과면 데스크톱 → false */
     if (window.innerWidth > 1024) return false;
+    /* 2단계: 모바일 UserAgent 검사 */
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
-    */
   }
   function showKakaoBanner(){
     var banner = document.getElementById('kakaoNoticeBanner');
     if (!banner) return;
-    /* TEST: if (sessionStorage.getItem('jsd2026_kakao_dismissed') === '1') return; */
+    if (sessionStorage.getItem('jsd2026_kakao_dismissed') === '1') return;
     banner.classList.add('show');
     document.body.classList.add('kakao-banner-on');
     
