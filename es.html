@@ -3998,6 +3998,9 @@ Chrome 메뉴 → "JSD 2026 설치"를 선택하세요.');
   function showKakaoBanner(){
     var banner = document.getElementById('kakaoNoticeBanner');
     if (!banner) return;
+    /* PWA로 설치되어 standalone 모드면 배너 표시 안 함 */
+    if (window.matchMedia('(display-mode: standalone)').matches) return;
+    if (window.navigator.standalone === true) return;
     if (sessionStorage.getItem('jsd2026_kakao_dismissed') === '1') return;
     banner.classList.add('show');
     document.body.classList.add('kakao-banner-on');
