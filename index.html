@@ -16,13 +16,15 @@
 <meta name="twitter:title"       content="AI 문명을 넘어 빛의 인간 아리랑 시대">
 <meta name="twitter:description" content="증산도 안경전 종도사님 2026 병오년 신년사">
 <meta name="twitter:image"       content="https://i.ytimg.com/vi/j4T4vCNloYU/maxresdefault.jpg">
-<!-- ===== Favicon ===== -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<link rel="manifest" href="site.webmanifest">
+<!-- ===== Favicon (절대경로 + 모바일 우선순위) ===== -->
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta name="msapplication-TileColor" content="#0a0a0a">
 <meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2547,7 +2549,7 @@ hr.divider { background: rgba(255,255,255,.08); }
     <button class="ham-item" onclick="hamGo('videos')">
       <div class="ham-texts">
         <div class="ham-title ham-t-video">비디오</div>
-        <div class="ham-desc ham-d-video">12개국어 신년사 영상</div>
+        <div class="ham-desc ham-d-video">12개 언어 신년사 영상</div>
       </div><span class="ham-arrow">›</span>
     </button>
     <button class="ham-item" onclick="hamGo('ebook')">
@@ -2565,7 +2567,7 @@ hr.divider { background: rgba(255,255,255,.08); }
     <button class="ham-item" onclick="hamGo('translators')">
       <div class="ham-texts">
         <div class="ham-title ham-t-trans">번역위원</div>
-        <div class="ham-desc ham-d-trans">12개국어 번역팀 소개</div>
+        <div class="ham-desc ham-d-trans">12개 언어 번역팀 소개</div>
       </div><span class="ham-arrow">›</span>
     </button>
   </div>
@@ -2602,11 +2604,11 @@ hr.divider { background: rgba(255,255,255,.08); }
     </h1>
     <p class="hero-sub">병오년 붉은 말의 해를 맞이하며</p>
     <div class="hero-author" onclick="openBioModal()" title="프로필 보기" style="cursor:pointer;">
-      <span class="m-author-desktop">증산도 안경전 종도사님</span>
+      <span class="m-author-desktop">증산도<br>안경전 종도사님</span>
       <span class="m-author-mobile">증산도<br>안경전 종도사님</span>
     </div>
     <div class="hero-meta">
-      <span class="hero-meta-item"><span class="dot"></span> 12개국 언어</span>
+      <span class="hero-meta-item"><span class="dot"></span> 12개 언어</span>
       <span class="hero-meta-item"><span class="dot"></span> 전자책 제공</span>
       <span class="hero-meta-item"><span class="dot"></span> STB 상생방송</span>
     </div>
@@ -3187,7 +3189,7 @@ hr.divider { background: rgba(255,255,255,.08); }
 <section class="section section-black video-section" id="videos">
   <div class="container">
     <div class="section-header center reveal">
-      <span class="section-eyebrow">신년사 영상 — 12개국 언어</span>
+      <span class="section-eyebrow">신년사 영상 — 12개 언어</span>
       <h2 class="section-title" style="color:var(--white);">안경전 종도사님<br>2026 병오년 신년사</h2>
       <p class="section-lead">언어를 선택하여 신년사를 시청하세요</p>
     </div>
@@ -3374,7 +3376,7 @@ hr.divider { background: rgba(255,255,255,.08); }
         <a href="https://www.youtube.com/watch?v=IUmecZAMoXE" target="_blank" rel="noopener">▶ 신년사 한국어</a>
         <a href="https://www.youtube.com/watch?v=j4T4vCNloYU" target="_blank" rel="noopener">▶ New Year's Address (EN)</a>
         <a href="https://www.stb.co.kr" target="_blank" rel="noopener">▶ STB 상생방송</a>
-        <a href="#videos" onclick="smoothScroll('videos');return false;">▶ 12개국어 영상</a>
+        <a href="#videos" onclick="smoothScroll('videos');return false;">▶ 12개 언어 영상</a>
       </div>
       <div class="footer-link-col">
         <h5>Read</h5>
@@ -3403,7 +3405,7 @@ hr.divider { background: rgba(255,255,255,.08); }
   <!-- 3. 번역위원 -->
   <div class="footer-translators" id="translators">
     <div class="footer-translators-label">Global Translation Contributors</div>
-    <div class="footer-translators-subtitle">세계 12개국어 번역위원</div>
+    <div class="footer-translators-subtitle">세계 12개 언어 번역위원</div>
     <div class="footer-translator-groups">
       <div class="footer-translator-group"><span class="footer-translator-lang">Director</span><span class="footer-translator-names"><b>최의철</b></span></div>
       <div class="footer-translator-divider"></div>
@@ -3411,7 +3413,7 @@ hr.divider { background: rgba(255,255,255,.08); }
       <div class="footer-translator-divider"></div>
       <div class="footer-translator-group"><span class="footer-translator-lang">English</span><span class="footer-translator-names"><b>임경규</b><span class="footer-translator-sep">·</span>손경희<span class="footer-translator-sep">·</span>조혜원<span class="footer-translator-sep">·</span>스튜어트<span class="footer-translator-sep">·</span>버디영</span></div>
       <div class="footer-translator-divider"></div>
-      <div class="footer-translator-group"><span class="footer-translator-lang">中文</span><span class="footer-translator-names"><b>장연</b></span></div>
+      <div class="footer-translator-group"><span class="footer-translator-lang">中文</span><span class="footer-translator-names">C. Yeon</span></div>
       <div class="footer-translator-divider"></div>
       <div class="footer-translator-group"><span class="footer-translator-lang">Français</span><span class="footer-translator-names"><b>한봉규</b><span class="footer-translator-sep">·</span>홍미선<span class="footer-translator-sep">·</span>아나벨</span></div>
       <div class="footer-translator-divider"></div>
@@ -3425,7 +3427,7 @@ hr.divider { background: rgba(255,255,255,.08); }
       <div class="footer-translator-divider"></div>
       <div class="footer-translator-group"><span class="footer-translator-lang">Монгол</span><span class="footer-translator-names"><b>어트겅</b></span></div>
       <div class="footer-translator-divider"></div>
-      <div class="footer-translator-group"><span class="footer-translator-lang">فارسی</span><span class="footer-translator-names">세타레누리<span class="footer-translator-sep">·</span><b>사라바야트</b></span></div>
+      <div class="footer-translator-group"><span class="footer-translator-lang">فارسی</span><span class="footer-translator-names">S. Noori<span class="footer-translator-sep">·</span>S. Bayat</span></div>
     </div>
   </div>
 
@@ -3809,5 +3811,68 @@ document.addEventListener('keydown', function(e) {
   </a>
 </div>
 
+
+<!-- ===== PWA 설치 배너 ===== -->
+<div id="pwaInstallBanner" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9999;background:#1a1a1a;border:1px solid #b8860b;border-radius:14px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.5);display:none;align-items:center;gap:14px;max-width:92vw;font-family:'Montserrat',sans-serif;">
+  <span style="font-size:24px;line-height:1;">📱</span>
+  <span style="color:#f7f3ec;font-size:14px;font-weight:600;flex:1;line-height:1.4;">JSD 2026</span>
+  <button id="pwaInstallBtn" style="background:linear-gradient(135deg,#b8860b,#d4a843);color:#111;border:none;padding:8px 16px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;letter-spacing:.02em;white-space:nowrap;">앱으로 설치</button>
+  <button id="pwaInstallClose" aria-label="닫기" style="background:transparent;color:rgba(255,255,255,.4);border:none;font-size:20px;cursor:pointer;padding:0 4px;line-height:1;">×</button>
+</div>
+
+<script>
+/* ===== PWA: Service Worker 등록 + 설치 프롬프트 ===== */
+(function(){
+  if (!('serviceWorker' in navigator)) return;
+
+  /* SW 등록 */
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js')
+      .then(function(reg){ console.log('SW registered:', reg.scope); })
+      .catch(function(err){ console.warn('SW register fail:', err); });
+  });
+
+  /* 설치 프롬프트 (Android / Chrome Desktop) */
+  var deferredPrompt = null;
+  var banner = document.getElementById('pwaInstallBanner');
+  var btn = document.getElementById('pwaInstallBtn');
+  var closeBtn = document.getElementById('pwaInstallClose');
+
+  /* 이미 설치돼 있거나 사용자가 닫았으면 배너 숨김 */
+  function isInstalled(){
+    return window.matchMedia('(display-mode: standalone)').matches
+        || window.navigator.standalone === true
+        || localStorage.getItem('jsd2026_pwa_dismissed') === '1';
+  }
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isInstalled() && banner) {
+      banner.style.display = 'flex';
+    }
+  });
+
+  if (btn) btn.addEventListener('click', function(){
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(){
+      deferredPrompt = null;
+      if (banner) banner.style.display = 'none';
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', function(){
+    if (banner) banner.style.display = 'none';
+    try { localStorage.setItem('jsd2026_pwa_dismissed', '1'); } catch(e){}
+  });
+
+  /* 설치 완료 이벤트 */
+  window.addEventListener('appinstalled', function(){
+    if (banner) banner.style.display = 'none';
+    deferredPrompt = null;
+  });
+})();
+</script>
 </body>
 </html>

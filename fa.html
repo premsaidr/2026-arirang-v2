@@ -16,13 +16,15 @@
 <meta name="twitter:title"       content="فراتر از عصر هوش مصنوعی، ورود به عصر اَری‌َرنگ">
 <meta name="twitter:description" content="جنگ‌دوسانیم اَن کیونگ-جون، جنگ-سن-دو — پیام نوروزی ۲۰۲۶">
 <meta name="twitter:image"       content="https://i.ytimg.com/vi/j4T4vCNloYU/maxresdefault.jpg">
-<!-- ===== Favicon ===== -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<link rel="manifest" href="site.webmanifest">
+<!-- ===== Favicon (절대경로 + 모바일 우선순위) ===== -->
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta name="msapplication-TileColor" content="#0a0a0a">
 <meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2275,7 +2277,7 @@ hr.divider { background: rgba(255,255,255,.08); }
 
   /* ── 전자책: 1개만 ──────────────────────────────────────── */
   .ebook-grid { grid-template-columns: 1fr !important; }
-  .ebook-grid .ebook-card:last-child { display: none; }
+  .ebook-grid .ebook-card:first-child { display: none; }
   .ebook-viewer { height: 400px; }
 
   /* ── 타임라인 접기 (JS 연동) ────────────────────────────── */
@@ -2633,8 +2635,8 @@ svg text { direction: ltr !important; unicode-bidi: isolate !important; }
     </h1>
     <p class="hero-sub">آغاز سال ۲۰۲۶، سال اسب سرخ</p>
     <div class="hero-author" onclick="openBioModal()" title="프로필 보기" style="cursor:pointer;">
-      <span class="m-author-desktop">Jongdosanim Ahn Gyeong-jeon,<br>Jeung San Do</span>
-      <span class="m-author-mobile">Jongdosanim<br>Ahn Gyeong-jeon,<br>Jeung San Do</span>
+      <span class="m-author-desktop">جونگدوسانیم آن گیونگ-جون<br>جونگ سان دو</span>
+      <span class="m-author-mobile">جونگدوسانیم آن گیونگ-جون<br>جونگ سان دو</span>
     </div>
     <div class="hero-meta">
       <span class="hero-meta-item"><span class="dot"></span> ۱۲ زبان</span>
@@ -3464,7 +3466,7 @@ svg text { direction: ltr !important; unicode-bidi: isolate !important; }
       <div class="footer-translator-divider"></div>
       <div class="footer-translator-group"><span class="footer-translator-lang">انگلیسی</span><span class="footer-translator-names"><b>Lim Kyung-kyu</b><span class="footer-translator-sep">·</span>Son Kyung-hee<span class="footer-translator-sep">·</span>Cho Hye-won<span class="footer-translator-sep">·</span>Stuart Smallwood<span class="footer-translator-sep">·</span>Buddy Young</span></div>
       <div class="footer-translator-divider"></div>
-      <div class="footer-translator-group"><span class="footer-translator-lang">چینی</span><span class="footer-translator-names"><b>Chang Yeon</b></span></div>
+      <div class="footer-translator-group"><span class="footer-translator-lang">چینی</span><span class="footer-translator-names">C. Yeon</span></div>
       <div class="footer-translator-divider"></div>
       <div class="footer-translator-group"><span class="footer-translator-lang">فرانسوی</span><span class="footer-translator-names"><b>Han Bong-gyu</b><span class="footer-translator-sep">·</span>Hong Mi-seon<span class="footer-translator-sep">·</span>Annabelle Bianchi</span></div>
       <div class="footer-translator-divider"></div>
@@ -3478,7 +3480,7 @@ svg text { direction: ltr !important; unicode-bidi: isolate !important; }
       <div class="footer-translator-divider"></div>
       <div class="footer-translator-group"><span class="footer-translator-lang">مغولی</span><span class="footer-translator-names"><b>Otgonjargal Sanduijav</b></span></div>
       <div class="footer-translator-divider"></div>
-      <div class="footer-translator-group"><span class="footer-translator-lang">فارسی</span><span class="footer-translator-names">Setareh Noori<span class="footer-translator-sep">·</span><b>Sara Bayat</b></span></div>
+      <div class="footer-translator-group"><span class="footer-translator-lang">فارسی</span><span class="footer-translator-names">S. Noori<span class="footer-translator-sep">·</span>S. Bayat</span></div>
     </div>
   </div>
 
@@ -3848,5 +3850,68 @@ document.addEventListener('keydown', function(e) {
   </a>
 </div>
 
+
+<!-- ===== PWA 설치 배너 ===== -->
+<div id="pwaInstallBanner" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9999;background:#1a1a1a;border:1px solid #b8860b;border-radius:14px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.5);display:none;align-items:center;gap:14px;max-width:92vw;font-family:'Montserrat',sans-serif;">
+  <span style="font-size:24px;line-height:1;">📱</span>
+  <span style="color:#f7f3ec;font-size:14px;font-weight:600;flex:1;line-height:1.4;">JSD 2026</span>
+  <button id="pwaInstallBtn" style="background:linear-gradient(135deg,#b8860b,#d4a843);color:#111;border:none;padding:8px 16px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;letter-spacing:.02em;white-space:nowrap;">نصب اپلیکیشن</button>
+  <button id="pwaInstallClose" aria-label="بستن" style="background:transparent;color:rgba(255,255,255,.4);border:none;font-size:20px;cursor:pointer;padding:0 4px;line-height:1;">×</button>
+</div>
+
+<script>
+/* ===== PWA: Service Worker 등록 + 설치 프롬프트 ===== */
+(function(){
+  if (!('serviceWorker' in navigator)) return;
+
+  /* SW 등록 */
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js')
+      .then(function(reg){ console.log('SW registered:', reg.scope); })
+      .catch(function(err){ console.warn('SW register fail:', err); });
+  });
+
+  /* 설치 프롬프트 (Android / Chrome Desktop) */
+  var deferredPrompt = null;
+  var banner = document.getElementById('pwaInstallBanner');
+  var btn = document.getElementById('pwaInstallBtn');
+  var closeBtn = document.getElementById('pwaInstallClose');
+
+  /* 이미 설치돼 있거나 사용자가 닫았으면 배너 숨김 */
+  function isInstalled(){
+    return window.matchMedia('(display-mode: standalone)').matches
+        || window.navigator.standalone === true
+        || localStorage.getItem('jsd2026_pwa_dismissed') === '1';
+  }
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isInstalled() && banner) {
+      banner.style.display = 'flex';
+    }
+  });
+
+  if (btn) btn.addEventListener('click', function(){
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(){
+      deferredPrompt = null;
+      if (banner) banner.style.display = 'none';
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', function(){
+    if (banner) banner.style.display = 'none';
+    try { localStorage.setItem('jsd2026_pwa_dismissed', '1'); } catch(e){}
+  });
+
+  /* 설치 완료 이벤트 */
+  window.addEventListener('appinstalled', function(){
+    if (banner) banner.style.display = 'none';
+    deferredPrompt = null;
+  });
+})();
+</script>
 </body>
 </html>
