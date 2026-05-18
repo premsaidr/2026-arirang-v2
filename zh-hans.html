@@ -56,7 +56,7 @@
   --font-serif: 'Noto Serif KR', serif;
   --font-body: 'Noto Sans KR', 'Montserrat', sans-serif;
   /* 간격 */
-  --section-pad: clamp(60px, 8vw, 120px);
+  --section-pad: clamp(48px, 6vw, 90px);
   --container: 1200px;
   --gutter: clamp(20px, 4vw, 40px);
 }
@@ -208,7 +208,7 @@ a { color: inherit; text-decoration: none; }
 /* 미묘한 노이즈 텍스처 */
 .hero-bg::after {
   content:''; position:absolute; inset:0;
-  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28255,255,255,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
+  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28184,134,11,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
   opacity:.4;
 }
 .hero-content {
@@ -336,12 +336,38 @@ a { color: inherit; text-decoration: none; }
   text-shadow: 0 1px 6px rgba(0,0,0,.4);
 }
 .quote-banner .banner-sub {
-  font-size: clamp(18px, 1.7vw, 22px);
+  position: relative;
+  font-size: clamp(16px, 1.5vw, 19px);
   font-weight: 700;
-  color: var(--gray-600);
-  margin-top: 20px;
+  color: #555;
+  margin-top: 36px;
+  padding-top: 28px;
   line-height: 1.7;
-  text-shadow: 0 1px 6px rgba(0,0,0,.4);
+  letter-spacing: .02em;
+}
+.quote-banner .banner-sub::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  display: flex; align-items: center; justify-content: center;
+  width: 180px; height: 14px;
+  background:
+    linear-gradient(90deg, transparent 0, rgba(184,134,11,.45) 30%, rgba(184,134,11,.45) 35%, transparent 38%, transparent 62%, rgba(184,134,11,.45) 65%, rgba(184,134,11,.45) 70%, transparent 100%);
+  background-size: 100% 1px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.quote-banner .banner-sub::after {
+  content: '✦';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 16px;
+  background: var(--bg-quote-banner, #f5f1e8);
+  padding: 0 8px;
+  line-height: 1;
 }
 
 /* ===== 섹션 공통 ===== */
@@ -393,11 +419,12 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== 플로우 차트 ===== */
 .flow-chart-wrap {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: #ffffff;
+  border: 1px solid rgba(184,134,11,0.15);
   border-radius: 12px;
   padding: 8px;
   margin-bottom: 48px;
+  box-shadow: 0 4px 20px rgba(184,134,11,0.08), 0 2px 6px rgba(0,0,0,0.04);
 }
 .section-dark .flow-chart-wrap { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.08); }
 
@@ -406,16 +433,17 @@ a { color: inherit; text-decoration: none; }
 .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
 
 .card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: #ffffff;
+  border: 1px solid rgba(184,134,11,0.15);
   border-radius: 8px;
   padding: 32px;
+  box-shadow: 0 4px 20px rgba(184,134,11,0.08), 0 2px 6px rgba(0,0,0,0.04);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.06);
-  border-color: var(--gray-300);
+  box-shadow: 0 12px 36px rgba(184,134,11,0.16), 0 4px 12px rgba(0,0,0,0.06);
+  border-color: rgba(184,134,11,0.35);
 }
 .card-label {
   font-family: var(--font-display);
@@ -490,11 +518,11 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--gray-200);
   transition: transform .3s, box-shadow .3s;
 }
-.img-card:hover { transform:translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+.img-card:hover { transform:translateY(-4px); box-shadow: 0 14px 40px rgba(184,134,11,0.15), 0 4px 12px rgba(0,0,0,0.06); }
 .img-card img { width:100%; display:block; object-fit:cover; }
 .img-card-body {
   padding: 24px 28px;
-  background: var(--white);
+  background: #ffffff;
 }
 .img-card-body h3 {
   font-family: var(--font-display);
@@ -563,10 +591,11 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== 바 차트 ===== */
 .bar-chart-wrap {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: #ffffff;
+  border: 1px solid rgba(184,134,11,0.15);
   border-radius: 8px;
   padding: 36px;
+  box-shadow: 0 4px 20px rgba(184,134,11,0.08), 0 2px 6px rgba(0,0,0,0.04);
 }
 .bar-chart-title {
   font-family: var(--font-display);
@@ -593,7 +622,7 @@ a { color: inherit; text-decoration: none; }
   content:''; position:absolute; left:12px; top:0; bottom:0;
   width:1px; background:var(--gray-300);
 }
-.section-dark .timeline::before { background: rgba(255,255,255,.12); }
+.section-dark .timeline::before { background: rgba(184,134,11,.25); }
 .tl-item { position:relative; margin-bottom:36px; padding-left:24px; }
 .tl-dot {
   position:absolute; left:-30px; top:6px;
@@ -633,7 +662,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
 }
-.practice-card:hover { transform:translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.06); }
+.practice-card:hover { transform:translateY(-4px); box-shadow: 0 14px 40px rgba(184,134,11,0.15), 0 4px 12px rgba(0,0,0,0.06); }
 .practice-card img { width:100%; display:block; }
 .practice-label {
   background: var(--black);
@@ -786,12 +815,12 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== 해원·상생 배너 ===== */
 .haewon-banner {
-  background: linear-gradient(180deg, #fff 0%, #fbf7ec 100%);
-  border: 1px solid var(--gray-200);
+  background: linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+  border: 1px solid rgba(184,134,11,0.18);
   border-top: 4px solid var(--gold);
   border-radius: 6px;
   padding: clamp(32px, 4vw, 56px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.05);
+  box-shadow: 0 12px 40px rgba(184,134,11,0.12), 0 4px 12px rgba(0,0,0,0.05);
 }
 .haewon-banner-grid {
   display: grid;
@@ -854,11 +883,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 .gaebyeok-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: #ffffff;
+  border: 1px solid rgba(184,134,11,0.15);
   border-radius: 8px;
   padding: 36px;
   border-top: 3px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(184,134,11,0.08), 0 2px 6px rgba(0,0,0,0.04);
 }
 .gaebyeok-card.alt { border-top-color: var(--gray-900); }
 .gaebyeok-card h3 {
@@ -1042,10 +1072,11 @@ a { color: inherit; text-decoration: none; }
 /* ===== E-Book 섹션 ===== */
 .ebook-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
 .ebook-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: #ffffff;
+  border: 1px solid rgba(184,134,11,0.15);
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(184,134,11,0.08), 0 2px 6px rgba(0,0,0,0.04);
 }
 .ebook-header {
   background: var(--black);
@@ -1327,7 +1358,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* 이미지가 섹션 상단에 위치할 때 — 상하 여백 축소 */
-.section-img-top { padding-top: clamp(28px, 3vw, 44px); padding-bottom: clamp(28px, 3vw, 44px); }
+.section-img-top { padding-top: clamp(48px, 5vw, 72px); padding-bottom: clamp(48px, 5vw, 72px); }
 /* ===== 반응형 ===== */
 @media (max-width:1024px) {
   .rang-grid { grid-template-columns:repeat(3,1fr); }
@@ -1606,12 +1637,12 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== 화자 프로필 카드 ===== */
 .speaker-card {
-  background: linear-gradient(180deg, #fff 0%, #faf7f0 100%);
-  border: 1px solid var(--gray-200);
+  background: linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+  border: 1px solid rgba(184,134,11,0.18);
   border-top: 4px solid var(--gold);
   border-radius: 6px;
   padding: clamp(40px, 5vw, 72px) clamp(32px, 5vw, 80px);
-  box-shadow: 0 30px 80px rgba(0,0,0,.06);
+  box-shadow: 0 18px 50px rgba(184,134,11,0.12), 0 6px 16px rgba(0,0,0,0.05);
   max-width: 1180px;
   margin: 0 auto;
   position: relative;
@@ -1840,8 +1871,8 @@ img.kb3 { animation: kbUp    28s ease-in-out infinite alternate; will-change: tr
 /* 바탕 전용 — 카드·컴포넌트 배경은 원본 유지          */
 
 body {
-  background-color: #45423c;
-  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28255,255,255,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
+  background-color: #f5f1e8;
+  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28184,134,11,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
   background-size: 60px 60px;
   background-repeat: repeat;
 }
@@ -1849,27 +1880,27 @@ body {
 /* 섹션 배경 */
 .section-white,
 .quote-banner {
-  background-color: #45423c !important;
-  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28255,255,255,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
+  background-color: #f5f1e8 !important;
+  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28184,134,11,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
   background-size: 60px 60px;
   background-repeat: repeat;
 }
 .section-light {
-  background-color: #3e3b35 !important;
-  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28255,255,255,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
+  background-color: #ece8df !important;
+  background-image: url("data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'><g%20stroke='rgba%28184,134,11,0.18%29'%20stroke-width='1.4'%20stroke-linecap='square'><line%20x1='0'%20y1='4'%20x2='4'%20y2='0'/><line%20x1='0'%20y1='12'%20x2='12'%20y2='0'/><line%20x1='0'%20y1='20'%20x2='20'%20y2='0'/><line%20x1='0'%20y1='28'%20x2='28'%20y2='0'/><line%20x1='0'%20y1='36'%20x2='30'%20y2='6'/><line%20x1='0'%20y1='44'%20x2='30'%20y2='14'/><line%20x1='0'%20y1='52'%20x2='30'%20y2='22'/><line%20x1='0'%20y1='60'%20x2='30'%20y2='30'/><line%20x1='30'%20y1='38'%20x2='8'%20y2='60'/><line%20x1='30'%20y1='46'%20x2='16'%20y2='60'/><line%20x1='30'%20y1='54'%20x2='24'%20y2='60'/><line%20x1='30'%20y1='58'%20x2='32'%20y2='60'/><line%20x1='30'%20y1='50'%20x2='40'%20y2='60'/><line%20x1='30'%20y1='42'%20x2='48'%20y2='60'/><line%20x1='30'%20y1='34'%20x2='56'%20y2='60'/><line%20x1='30'%20y1='26'%20x2='60'%20y2='56'/><line%20x1='30'%20y1='18'%20x2='60'%20y2='48'/><line%20x1='30'%20y1='10'%20x2='60'%20y2='40'/><line%20x1='30'%20y1='2'%20x2='60'%20y2='32'/><line%20x1='60'%20y1='24'%20x2='36'%20y2='0'/><line%20x1='60'%20y1='16'%20x2='44'%20y2='0'/><line%20x1='60'%20y1='8'%20x2='52'%20y2='0'/></g></svg>");
   background-size: 60px 60px;
   background-repeat: repeat;
 }
 
 /* ── 섹션 레벨 텍스트 (카드 밖) ── */
-.section-title  { color: #e8e4da !important; }
-.section-lead   { color: #c8c4b8 !important; font-weight: 600 !important; }
+.section-title  { color: #1a1a1a !important; }
+.section-lead   { color: #555555 !important; font-weight: 600 !important; }
 /* section-eyebrow은 gold이므로 그대로 */
 
 /* 인용 배너 텍스트 */
-.quote-banner blockquote { color: #e8e4da !important; }
-.quote-banner cite       { color: #e8e4da !important; font-weight: 800 !important; }
-.quote-banner .banner-sub { color: #9a9690 !important; }
+.quote-banner blockquote { color: #1a1a1a !important; }
+.quote-banner cite       { color: #2a2a2a !important; font-weight: 800 !important; }
+.quote-banner .banner-sub { color: #666666 !important; }
 
 /* 타임라인 섹션(#history) — 더 진한 구분 배경 */
 #history {
@@ -1888,19 +1919,19 @@ body {
 #transition { padding-top: 0 !important; }
 
 /* quote-banner 하단 선 — 연하게 */
-.quote-banner { border-bottom-color: rgba(255,255,255,.08) !important; }
+.quote-banner { border-bottom-color: rgba(184,134,11,.25) !important; }
 
-.timeline::before { background: rgba(255,255,255,.12); }
-.tl-dot           { border-color: #45423c !important; box-shadow: 0 0 0 1px rgba(255,255,255,.2); }
-.tl-title         { color: #e0dcd4 !important; }
-.tl-desc          { color: #9a9690 !important; }
+.timeline::before { background: rgba(184,134,11,.25); }
+.tl-dot           { border-color: #f5f1e8 !important; box-shadow: 0 0 0 1px rgba(184,134,11,.4); }
+.tl-title         { color: #1a1a1a !important; }
+.tl-desc          { color: #555555 !important; }
 
 /* 구분선 */
 hr.divider { background: rgba(255,255,255,.08); }
 
 /* 카드는 밝게 유지 */
 .card              { background: #fdf6e3; border-color: #e8e0cc; }
-.img-card          { background: #fdf6e3; border-color: #e8e0cc; }
+.img-card          { background: #ffffff; border-color: #e8e0cc; }
 .img-card-body     { background: #fdf6e3; }
 .bar-chart-wrap    { background: #fdf6e3; border-color: #e8e0cc; }
 .flow-chart-wrap   { background: #fdf6e3; border-color: #e8e0cc; }
@@ -1913,7 +1944,7 @@ hr.divider { background: rgba(255,255,255,.08); }
 .ebook-foot        { background: #f0e8ce; }
 
 /* AI 대비 섹션은 이미 다크 — 텍스트 색 보정 */
-.ai-harmony        { color: #e8e4da !important; }
+.ai-harmony        { color: #1a1a1a !important; }
 
 /* 푸터 */
 .site-footer       { background: #1a1814; }
@@ -2526,7 +2557,7 @@ hr.divider { background: rgba(255,255,255,.08); }
       </blockquote>
       <cite>宗道师 安耕田</cite>
       <p class="banner-sub">
-        丙午红马之气开启文明大转折 · <em>我们存在的唯一目的是成为光人，建立光明的世界。</em>
+        丙午红马之气开启文明大转折
       </p>
     </div>
   </div>
@@ -2537,7 +2568,7 @@ hr.divider { background: rgba(255,255,255,.08); }
   <div class="container">
 
     <!-- ★ img_02: 문명의 대전환 — 대표 이미지 -->
-    <div class="desktop-only reveal bleed-img" style="margin-bottom:16px;border-radius:8px;overflow:hidden;position:relative;height:clamp(380px,42vw,580px);background:linear-gradient(160deg,#0d0d0d 0%,#1a1a2a 50%,#0d0d0d 100%);border:1px solid rgba(255,255,255,.06);">
+    <div class="desktop-only reveal bleed-img" style="margin-top:-38px;margin-bottom:54px;border-radius:8px;overflow:hidden;position:relative;height:clamp(380px,42vw,580px);background:linear-gradient(160deg,#0d0d0d 0%,#1a1a2a 50%,#0d0d0d 100%);border:1px solid rgba(255,255,255,.06);">
       <img src="img_02.jpg" alt="文明大转折" loading="lazy" class="kb" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none';" onload="var n=this.nextElementSibling;if(n)n.style.display='none';">
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;gap:10px;">
         <span style="font-family:var(--font-display);font-size:22px;font-weight:900;letter-spacing:.08em;color:rgba(255,255,255,.18);">img_02.jpg</span>
@@ -2682,7 +2713,7 @@ hr.divider { background: rgba(255,255,255,.08); }
   <div class="container">
 
     <!-- ★ img_05: 두 AI — 인공지능과 원형지능 -->
-    <div class="desktop-only reveal bleed-img" style="margin-bottom:16px;border-radius:8px;overflow:hidden;position:relative;height:clamp(380px,42vw,580px);background:linear-gradient(160deg,#0d0d0d 0%,#1a1a2a 50%,#0d0d0d 100%);border:1px solid rgba(255,255,255,.06);">
+    <div class="desktop-only reveal bleed-img" style="margin-top:-38px;margin-bottom:54px;border-radius:8px;overflow:hidden;position:relative;height:clamp(380px,42vw,580px);background:linear-gradient(160deg,#0d0d0d 0%,#1a1a2a 50%,#0d0d0d 100%);border:1px solid rgba(255,255,255,.06);">
       <img src="img_05.jpg" alt="两种AI" loading="lazy" class="kb2" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none';" onload="var n=this.nextElementSibling;if(n)n.style.display='none';">
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;gap:10px;">
         <span style="font-family:var(--font-display);font-size:22px;font-weight:900;letter-spacing:.08em;color:rgba(255,255,255,.18);">img_05.jpg</span>
