@@ -8,7 +8,7 @@
  *  - 인증된 응답만 캐싱하여 오프라인 시 안전하게 제공
  * ============================================================ */
 
-const CACHE_NAME = 'jsd2026-v1.1.0';
+const CACHE_NAME = 'jsd2026-v1.1.1';
 
 const APP_SHELL = [
   '/',
@@ -17,7 +17,13 @@ const APP_SHELL = [
   '/de.html', '/mn.html', '/es.html', '/fa.html',
   '/fr.html', '/vn.html', '/ru.html',
   '/favicon.svg',
+  '/favicon.ico',
+  '/favicon-16.png',
   '/favicon-32.png',
+  '/favicon-48.png',
+  '/favicon-64.png',
+  '/favicon-128.png',
+  '/favicon-180.png',
   '/favicon-192.png',
   '/favicon-512.png',
   '/site.webmanifest',
